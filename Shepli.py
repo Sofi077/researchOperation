@@ -3,19 +3,22 @@ from sympy import symbols, Eq, solve, simplify
 from itertools import combinations
 
 # A = np.array([
-#     [1, -1, 1, 0],
-#     [-1, 6, 4, 0],
-#     [-2, -1, 3, 6],
-#     [7, 6, 4, 3]
+#     [1, 3, 4],  #всі стратегії активні
+#     [2, 2, 1],
+#     [2, 1, 5]
 # ])
-# A = np.array([[-3, 0, 4, 9, 13],
-#              [14, 10, 8, 3, 2]
-# ])
-A = np.array([
-    [-1, 2, 1],
-    [2, -1, 1],
-    [1, -1, 2]
+A = np.array([[-3, 0, 4, 9, 13],
+             [14, 10, 8, 3, 2]
 ])
+# A = np.array([
+#     [-1, 2, 1],
+#     [2, -1, 1],
+#     [1, -1, 2]
+# ])
+# A = np.array([
+#     [-1, 2],
+#     [2, -1]
+# ])
 # A = np.array([
 #     [-2, 6],
 #     [0, 3],
@@ -255,17 +258,24 @@ print("\n")
 if n==2 and m==2:
     resultA = solveA(A)
     resultB = solveB(A)
-    if resultA[vA]==resultB[vB]:
-        print(solveA(A))
-        print(solveB(A))
+    if resultA and resultB:
+        vA_value = resultA.get(vA, None) if resultA else None
+        vB_value = resultB.get(vB, None) if resultB else None
+        print(vB_value)
+        if vA_value==vB_value:
+            print(solveA(A))
+            print(solveB(A))
+
 
 elif n==3 and m==3:
     resultA = solveA(A)
     resultB = solveB(A)
     if resultA and resultB:
-        vA_value = resultA.get('vA', None) if resultA else None
-        vB_value = resultB.get('vB', None) if resultB else None
+        vA_value = resultA.get(vA, None) if resultA else None
+        vB_value = resultB.get(vB, None) if resultB else None
         if vA_value==vB_value:
+            print("matrix")
+            print(A)
             print(solveA(A))
             print(solveB(A))
 

@@ -2,14 +2,14 @@ import numpy as np
 from sympy import symbols, Eq, solve, simplify
 from itertools import combinations
 
-A = np.array([
-    [3, 2, 4, 3, 4, 5],
-    [4, 2, 3, 5, 4, 2]
-])
-B = np.array([
-    [10, 9, 7, 4, -2, -10],
-    [-5, 0, 5, 8, 10 ,11]
-])
+# A = np.array([
+#     [3, 2, 4, 3, 4, 5],
+#     [4, 2, 3, 5, 4, 2]
+# ])
+# B = np.array([
+#     [10, 9, 7, 4, -2, -10],
+#     [-5, 0, 5, 8, 10 ,11]
+# ])
 # A = np.array([
 #     [7, 1],
 #     [6, 4],
@@ -24,7 +24,24 @@ B = np.array([
 #     [7, 3],
 #     [5, 8]
 # ])
-
+# A = np.array([
+#     [2, 6, -1],
+#     [4, 2, 5],
+#     [2, 3, 0]
+# ])
+# B = np.array([
+#     [-5, 4, 7],
+#     [15, 12, 3],
+#     [6, 3, 8]
+# ])
+A = np.array([
+    [1, 4],
+    [3, 2]
+])
+B = np.array([
+    [5, 3],
+    [2, 8]
+])
 vA, vB = symbols('vA vB')
 
 
@@ -52,7 +69,7 @@ def solveA(A):
     if all(solution[var] >= 0 for var in y_vars):
         return solution
     else:
-        return "є від’ємні значення"
+        return False
 
 
 def solveB(B):
@@ -74,7 +91,7 @@ def solveB(B):
     if all(solution[var] >= 0 for var in x_vars):
         return solution
     else:
-        return "є від’ємні значення"
+        return False
 
 def solve_and_checkA(A, inequality_rows):
     """
